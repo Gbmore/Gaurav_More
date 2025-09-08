@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed Navigation Menu</title>
+  <style>
+    /* Basic reset */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navigation bar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: transparent;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: center;
+      transition: background 0.3s, box-shadow 0.3s;
+      z-index: 1000;
+    }
+
+    /* Change style when scrolled */
+    nav.scrolled {
+      background: #333;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    /* Menu items */
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    /* Hover effect */
+    nav a:hover {
+      color: yellow;
+    }
+
+    /* Page content for scrolling */
+    section {
+      height: 100vh;
+      padding: 40px;
+    }
+    section:nth-child(odd) { background: #f4f4f4; }
+    section:nth-child(even) { background: #ddd; }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home"><h1>Home</h1></section>
+  <section id="services"><h1>Services</h1></section>
+  <section id="about"><h1>About</h1></section>
+  <section id="contact"><h1>Contact</h1></section>
+
+  <script>
+    // Add "scrolled" class when page is scrolled
+    window.addEventListener("scroll", function() {
+      const navbar = document.getElementById("navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+</body>
+</html>
